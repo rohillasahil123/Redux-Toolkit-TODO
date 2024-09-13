@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux' 
+import {addTodo} from "../../Feature/Reduser"
+
 
 const Addtodo = () => {
     
     const [input , setInput]  =  useState("")
+    const dispatch = useDispatch()
 
 
         const handelChange = (e)=>{
@@ -13,7 +17,9 @@ const Addtodo = () => {
 
         const handleSubmit = (e) => {
             e.preventDefault(); 
-            console.log(input); 
+            dispatch(addTodo(input))
+            setInput('')
+            
         };
 
 
